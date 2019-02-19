@@ -1,0 +1,27 @@
+<div class="jumbotron bg-transparent text-center">
+    <div *ngIf="!user" class="card text-center">
+      <h6 class="card-header">
+        Zaloguj się
+      </h6>
+      <div class="card-block">
+        <p class="card-text">Zaloguj się przez:</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-social-icon btn-facebook mx-1" (click)="signInWithFB()"><span class="fa fa-facebook-official"></span></button>
+      </div>
+    </div>
+    <div *ngIf="user" class="card text-center">
+      <h6 class="card-header">
+        Twoje dane:
+      </h6>
+      <div class="card-block"></div>
+      <img class="card-img-top img-fluid photo" src="{{ user.photoUrl }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p class="card-text">{{ user.email }}</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+      </div>
+    </div>
+  </div>

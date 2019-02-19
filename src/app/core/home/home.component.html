@@ -1,0 +1,72 @@
+<div class="container home">
+  <div class="row">
+    <div class="col-12 dummy">   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3"><h3>Wszystkie Twoje przepisy w jednym miejscu!</h3></div>
+  </div>
+  <div class="row">
+      <div class="col-12 dummy">   
+      </div>
+  </div>
+  <div class="row justify-content-center">
+      <div *ngIf="!isSearchEnabled" class="col-12 col-md-10 col-lg-8">
+          <button class="btn btn-success" (click)="toggleSearch()">Szukaj</button>
+      </div>
+      <div *ngIf="isSearchEnabled" class="col-12 col-md-10 col-lg-8">
+        <button class="btn btn-success" (click)="toggleSearch()">Ukryj</button>
+      </div>
+  </div>
+  <div *ngIf="isSearchEnabled" class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+              <form class="card card-sm">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col">
+                        <p class="h6 text-center">Szukaj przepisów po nazwie lub kategorii:</p>
+                      </div>
+                    </div>
+                    <div class="row no-gutters align-items-center">
+                      <div class="col-auto">
+                          <i class="fa fa-search h4 text-body"></i>
+                      </div>
+                      <div class="col">
+                          <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Nazwa lub kategoria">
+                      </div>
+                      <div class="col-auto">
+                          <button class="btn btn-lg btn-primary" type="submit">Znajdź</button>
+                      </div>
+                    </div>
+                  </div>
+              </form>
+          </div>
+  </div>
+  <div class="row">
+      <div class="col-12 dummy">   
+      </div>
+  </div>
+  <div class="row">
+      <div class="card col-md-6 card-inverse" style="border: none;">
+            <img class="img-fluid card-img" src="assets/images/login-bricklet.jpg" alt="Card image" style="opacity: 0.5; max-height: 350px; border-radius: 1px">
+            <div class="card-img-overlay d-flex">
+                <div class="my-auto mx-auto text-center">
+                <h5 class="card-title">Logowanie</h5>
+                <p class="card-text">Zaloguj się, aby poznać całą funkcjonalność</p>
+                <button [routerLink]="['/signin']" class="btn btn-primary">Logowanie</button>
+            </div>
+            </div>
+      </div>
+      <div class="card col-md-6 card-inverse" style="border: none;">
+            <img class="img-fluid card-img" src="assets/images/recipes-bricklet.jpg" alt="Card image" style="opacity: 0.5; max-height: 350px">
+            <div class="card-img-overlay d-flex">
+                <div class="my-auto mx-auto text-center">
+                <h5 class="card-title">Przepisy</h5>
+                <p class="card-text">Przeglądaj publiczne przepisy</p>
+                <button [routerLink]="['/recipes']" class="btn btn-primary">Przepisy</button>
+                </div>
+            </div>
+      </div>
+  </div>
+
+</div>

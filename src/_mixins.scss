@@ -1,0 +1,14 @@
+@mixin page-background() {
+    background-color: $color-white;
+
+    position: absolute;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: auto;
+    padding-bottom: $navbar-height;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

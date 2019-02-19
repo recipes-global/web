@@ -1,0 +1,33 @@
+<div class="recipe-item list-group clearfix">
+
+    <div ngbDropdown style="text-align: right">
+        <button class="btn btn-outline-primary" id="dropdownConfig" ngbDropdownToggle>Opcje</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+          <button class="dropdown-item">
+            <span class="fa fa-heart"></span>
+            Usuń z ulubionych</button>
+          <button class="dropdown-item">
+            <span class="fa fa-thumbs-up"></span> 
+            Zabierz like'a</button>
+          <button class="dropdown-item">
+            <span class="fa fa-comments"></span>
+            Komentarze</button>
+        </div>
+    </div>
+
+<a
+  style="cursor: pointer"
+  [routerLink]="[index]"
+  class="list-group-item list-group-item-action flex-column align-items-start">
+
+    <h4 class="">{{ recipe.name }}</h4>
+
+  <div class="pull-bottom">
+    <img
+        [src]="recipe.imagePath"
+        alt="{{ recipe.name }}"
+        class="img-fluid center-block"
+        style="max-height: 200px;">
+  </div>
+</a>
+</div>

@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'variables';
+@import 'mixins';
+
+@import './app/core/header/header.component.scss';
+@import './app/core/home/home.component.scss';
+@import './app/recipes/recipe-list/recipe-item/recipe-item.component.scss';
+@import './app/recipes/recipes.component.scss';
+
+
+* {
+    font-family: $font-family-global;
+}
