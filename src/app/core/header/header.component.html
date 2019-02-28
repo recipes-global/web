@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" routerLink="/"><i class="fa fa-home"></i></a>
       <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,11 +9,20 @@
             <a class="nav-link" routerLink="/recipes">
               Przepisy <i class="fa fa-cutlery"></i></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="isAuthenticated()" routerLink="/signin">
+            Profil <i class="fa fa-user"></i></a>
+          </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!isAuthenticated()"> 
             <a class="nav-link" routerLink="/signin">
               Zaloguj <i class="fa fa-sign-in"></i></a>
+          </li>
+          <li class="nav-item" *ngIf="isAuthenticated()"> 
+            <a class="nav-link" (click)="signOut()" style="cursor: pointer">
+              <img src="{{user.photoUrl}}" class="img-fluid photo" style="max-height: 30px">
+              Wyloguj <i class="fa fa-sign-out"></i></a>
           </li>
         </ul>
       </div>

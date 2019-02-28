@@ -2,7 +2,11 @@ export class CustomAuthService {
 
     private isLoggedIn: boolean = false;
     
-    setAuthorization() {
-        this.isLoggedIn = true;
+    setAuthorization(state: boolean) {
+        this.isLoggedIn = state;
+    }
+
+    getAuthorization() {
+        return this.isLoggedIn;
     }
 }

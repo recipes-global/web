@@ -4,20 +4,22 @@
     <div class="col-6 offset-3">
       <h4>{{ recipe.name }}</h4>
       <img [src]="recipe.imagePath" alt="Recipe image" class="img-fluid mx-auto">
-      <table class="table table-bordered table-striped">
-        <tr>
-          <th colspan="3">Składniki</th></tr>
-        <tr>
-          <th>Składnik</th>
-          <th>Ilość</th>
-          <th>Jednostka</th>
-        </tr>
-        <tr *ngFor="let ingredient of recipe.ingredients">
-          <td>{{ ingredient.name }}</td>
-          <td>{{ ingredient.amount }}</td>
-          <td>{{ ingredient.unit }}</td>
-        </tr>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th colspan="3">Składniki</th></tr>
+          <tr>
+            <th>Składnik</th>
+            <th>Ilość</th>
+            <th>Jednostka</th>
+          </tr>
+          <tr *ngFor="let ingredient of recipe.ingredients">
+            <td>{{ ingredient.name }}</td>
+            <td>{{ ingredient.amount }}</td>
+            <td>{{ ingredient.unit }}</td>
+          </tr>
+        </table>
+      </div>
       <div class="clearfix jumbotron">
         <p>{{ recipe.description }}</p>
       </div>

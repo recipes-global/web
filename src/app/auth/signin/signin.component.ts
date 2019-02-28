@@ -29,14 +29,19 @@ export class SigninComponent implements OnInit {
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
        () => {
-        this.customAuthService.setAuthorization();
+        this.customAuthService.setAuthorization(true);
         this.router.navigate(['/recipes']);
         }
     );
   }
 
   signOut(): void {
-    this.authService.signOut();
+    this.authService.signOut().then(
+      () => {
+        this.customAuthService.setAuthorization(false);
+        this.router.navigate(['/recipes']);
+      }
+    );
   }
 
 }

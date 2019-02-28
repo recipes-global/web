@@ -1,7 +1,7 @@
-<div class="jumbotron bg-transparent text-center">
+<div class="jumbotron bg-transparent text-center signin-fb">
     <div *ngIf="!user" class="card text-center">
       <h6 class="card-header">
-        Zaloguj się
+        Logowanie do serwisu
       </h6>
       <div class="card-block">
         <p class="card-text">Zaloguj się przez:</p>
@@ -15,13 +15,13 @@
         Twoje dane:
       </h6>
       <div class="card-block"></div>
-      <img class="card-img-top img-fluid photo" src="{{ user.photoUrl }}">
+      <img class="card-img-top img-fluid photo mx-auto" src="{{ user.photoUrl }}" style="height:100px; width: 100px;">
       <div class="card-block">
         <h4 class="card-title">{{ user.name }}</h4>
         <p class="card-text">{{ user.email }}</p>
       </div>
       <div class="card-block">
-        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+        <button class="btn btn-danger" (click)="signOut()">Wyloguj</button>
       </div>
     </div>
   </div>
