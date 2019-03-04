@@ -1,3 +1,99 @@
-<p>
-  recipe-edit works!
-</p>
+<div class="container">
+<div class="row edit-form">
+  <div class="col-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!recipeForm.valid">Zapisz</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            routerLink="../">Anuluj</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Nazwa</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="imagePath">URL Obrazka</label>
+            <input
+              type="text"
+              id="imagePath"
+              class="form-control"
+              formControlName="imagePath">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="description">Opis</label>
+            <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              rows="6"
+              formControlName="description"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" formArrayName="ingredients">
+          <div 
+              class="row" 
+              *ngFor="let ingredientCtrl of getControls(); let i = index"
+              [formGroupName]="i"
+              style="margin-top: 10px;">
+            <div class="col-6">
+              <input 
+                type="text"
+                class="form-control"
+                formControlName="name">
+            </div>
+            <div class="col-2">
+                <input 
+                  type="number"
+                  class="form-control"
+                  formControlName="amount">
+            </div>
+            <div class="col-2">
+              <select class="form-control" formControlName="unit">
+                <option [value]="unit" *ngFor="let unit of units">{{unit}}</option>
+              </select>
+            </div>
+            <div class="col-2">
+              <button
+                type="button" 
+                class="btn btn-danger"
+                (click)="onDeleteIngredient(i)">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-12">
+              <button 
+                type="button"
+                class="btn btn-success" 
+                (click)="onAddIngredient()">Dodaj składnik</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

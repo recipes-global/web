@@ -24,6 +24,21 @@
         <p>{{ recipe.description }}</p>
       </div>
     </div>
+    <div class="col-3">
+        <div 
+        class="btn-group"
+        appDropdown
+        #r="appDropdown"
+        >
+        <button type="button" class="btn btn-primary dropdown-toggle">Zarządzaj przepisem
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" [ngClass]="{'show': r.isOpened}">
+          <li><a class="dropdown-item" (click)="onEditRecipe()" style="cursor: pointer">Edytuj przepis</a></li>
+          <li><a class="dropdown-item" (click)="onDeleteRecipe()" style="cursor: pointer">Usuń przepis</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="row ml-auto">
     <button class="btn btn-danger" (click)="goBack()">Cofnij</button>

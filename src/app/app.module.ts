@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { FacebookLoginProvider } from "angularx-social-login";
 import { CustomAuthService } from './auth/auth.service';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 let config = new AuthServiceConfig([
   {
@@ -48,14 +50,17 @@ export function provideConfig() {
     UsersComponent,
     CommentsComponent,
     UserDetailComponent,
-    UserEditComponent
+    UserEditComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
     NgbModule,
-    SocialLoginModule
+    SocialLoginModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [RecipeService, CustomAuthService, { provide: AuthServiceConfig, useFactory: provideConfig}],
   bootstrap: [AppComponent]
